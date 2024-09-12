@@ -2,12 +2,21 @@
 import React from 'react';
 
 
+
 function VideoFeed() {
   const videos = [
-    { title: 'Video 1', channel: 'Channel 1', thumbnail: 'thumbnail1.jpg' },
-    { title: 'Video 2', channel: 'Channel 2', thumbnail: 'thumbnail2.jpg' },
-    // Add more videos here
+    { 
+      title: 'Understanding Algorithms', 
+      channel: 'Tech Guru', 
+      thumbnail: '', 
+    },
+    { 
+      title: 'React for Beginners', 
+      channel: 'Dev Academy', 
+      thumbnail: '', 
+    },
   ];
+  
 
   return (
     <div className="videoFeed">
