@@ -7,6 +7,7 @@ import VideoPlayer from './components/VideoPlayer';
 import CommentsSection from './components/CommentsSection';
 
 function App() {
+  const [searchTerm, setSearchTerm] = useState('');
   const [selectedVideo, setSelectedVideo] = useState(null);
   const comments = [
     { user: 'User1', text: 'Great video!' },
@@ -15,7 +16,7 @@ function App() {
 
   return (
     <div className="app">
-      <Header />
+      <Header setSearchTerm={setSearchTerm} />
       <div className="app__body">
         <Sidebar />
         <div className="app__mainContent">
@@ -25,7 +26,7 @@ function App() {
               <CommentsSection comments={comments} />
             </>
           ) : (
-            <VideoFeed />
+            <VideoFeed searchTerm={searchTerm} />
           )}
         </div>
       </div>
