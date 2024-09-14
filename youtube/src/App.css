@@ -197,3 +197,41 @@ video {
 }
 
 
+.app__body {
+  display: flex;
+}
+
+.videoPlayerPage {
+  display: flex;
+  flex-direction: row;
+}
+
+.videoPlayer {
+  flex: 3;
+}
+
+.recommendedVideos {
+  flex: 1;
+  padding-left: 20px;
+}
+
+.recommendedVideos h4 {
+  margin-bottom: 10px;
+}
+.commentsSection {
+  margin-top: 20px;
+}
+
+.commentsSection h4 {
+  margin-bottom: 10px;
+}
+
+.comment {
+  margin-bottom: 15px;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.comment p {
+  margin: 0;
+}

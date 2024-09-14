@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 function VideoFeed({ searchTerm }) {
@@ -6,10 +7,11 @@ function VideoFeed({ searchTerm }) {
   const [nextPageToken, setNextPageToken] = useState('');
   const [loading, setLoading] = useState(false);
   const [trending, setTrending] = useState(true); 
+  const navigate = useNavigate(); 
 
   const API_KEY = 'AIzaSyDpN6v_Gt9_IO05Ar3lhaRCEtwEDHnuqko';  
   const YOUTUBE_API_URL = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&key=${API_KEY}`;
-  const TRENDING_API_URL = `https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&key=${API_KEY}`;  // URL for trending videos
+  const TRENDING_API_URL = `https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&key=${API_KEY}`;  
 
   const fetchVideos = async (url, pageToken = '') => {
     setLoading(true);
@@ -71,11 +73,21 @@ function VideoFeed({ searchTerm }) {
     };
   }, [loading, nextPageToken]);
 
+  
+  const handleVideoClick = (videoId) => {
+    
+    navigate(`/watch?v=${videoId}`);
+  };
+
   return (
     <div className="videoFeed">
       {videos.length > 0 ? (
         videos.map((video, index) => (
-          <div key={index} className="videoCard">
+          <div 
+            key={index} 
+            className="videoCard" 
+            onClick={() => handleVideoClick(video.id.videoId)} 
+          >
             <img
               src={video.snippet.thumbnails.medium.url}
               alt={video.snippet.title}

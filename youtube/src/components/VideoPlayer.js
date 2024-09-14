@@ -1,15 +1,17 @@
-// VideoPlayer.js
 import React from 'react';
 
-
-function VideoPlayer({ video }) {
+function VideoPlayer({ videoId }) {
   return (
     <div className="videoPlayer">
-      <video controls>
-        <source src={video.url} type="video/mp4" />
-      </video>
-      <h3>{video.title}</h3>
-      <p>{video.description}</p>
+      <iframe
+        width="100%"
+        height="500px"
+        src={`https://www.youtube.com/embed/${videoId}`}
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+        title="YouTube video player"
+      ></iframe>
     </div>
   );
 }
